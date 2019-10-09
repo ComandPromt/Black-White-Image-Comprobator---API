@@ -85,12 +85,12 @@ function getColorPallet($imageURL, $palletSize=[16,8]){
 
 function png_a_jpg($imagen) {
 
-		if(substr($imagen, -3)=="png" && file_exists($imagen)){
-        $jpg = substr($imagen, 0, -3) . "jpg";
-        $image = imagecreatefrompng($imagen);
-        imagejpeg($image, $jpg, 100);
-        unlink($imagen);
-		}
+	if(substr($imagen, -3)=="png" && file_exists($imagen)){
+		$jpg = substr($imagen, 0, -3) . "jpg";
+		$image = imagecreatefrompng($imagen);
+		imagejpeg($image, $jpg, 100);
+		unlink($imagen);
+	}
 }
 
 ?>

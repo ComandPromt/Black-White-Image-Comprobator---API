@@ -1,46 +1,47 @@
 <?php
 
-
 if(!file_exists ("uploads")) {
 	mkdir("uploads");
 }
 
 if(isset($_POST['subir'])){
 
-$uploadedfile_size=$_FILES['uploadedfile'][size];
-$file_name=$_FILES[uploadedfile][name];
-$add="uploads/$file_name";
-
-if(move_uploaded_file ($_FILES[uploadedfile][tmp_name], $add)){
-
-	rename($add,'uploads/test.'.substr($file_name,-3));
+	$uploadedfile_size=$_FILES['uploadedfile'][size];
 	
-	include('funciones.php');
-
-	if(file_exists('test.png')){
-		png_a_jpg('test.png');
-	}
+	$file_name=$_FILES[uploadedfile][name];
 	
-	$url='uploads/test.jpg';
+	$add="uploads/$file_name";
 	
-	if(file_exists($url)){
+	if(move_uploaded_file ($_FILES[uploadedfile][tmp_name], $add)){
+	
+		rename($add,'uploads/test.'.substr($file_name,-3));
 		
-		if(count(getColorPallet($url))==0){
-			deliver_response(200, true);
-		}
+		include('funciones.php');
 	
+		if(file_exists('test.png')){
+			png_a_jpg('test.png');
+		}
+		
+		$url='uploads/test.jpg';
+		
+		if(file_exists($url)){
+			
+			if(count(getColorPallet($url))==0){
+				deliver_response(200, true);
+			}
+		
+			else{
+				deliver_response(200, false);
+			}
+			
+			unlink($url);
+		}
+		
 		else{
-			deliver_response(200, false);
+			deliver_response(400, false);
 		}
-		
-		unlink($url);
-	}
 	
-	else{
-		deliver_response(400, false);
 	}
-
-}
 
 }
 
