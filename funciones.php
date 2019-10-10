@@ -46,7 +46,7 @@ function getColorPallet($imageURL, $palletSize=[16,8]){
 	'#636363','#383838','#4f4f4f','#131313','#1f1f1f','#1e1e1e','#bbbbbb','#e9e9e9',
 	'#e8e8e8','#5e5e5e','#e5e5e5','#e3e3e3','#a2a2a2','#3e3e3e','#cacaca','#cbcbcb',
 	'#d5d5d5','#666666','#f1f1f1','#ededed','#eaeaea','#eeeeee','#efefef','#ececec',
-	'#828282','#a7a7a7','#868686','#f3f3f3','#10101');
+	'#828282','#a7a7a7','#868686','#f3f3f3','#10101','#0f0f0f','#0C0C0C','#090909','#060606','#030303');
 
     if(!$imageURL) return false;
 
